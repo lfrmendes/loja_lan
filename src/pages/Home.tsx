@@ -29,6 +29,11 @@ import TestimonialCard from "../components/TestimonialCard";
 
 export default function Home() {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [status, setStatus] = useState<
+    "idle" | "loading" | "success" | "error"
+  >("idle");
 
   useEffect(() => {
     const html = document.querySelector("html");
@@ -36,6 +41,30 @@ export default function Home() {
       html.style.overflow = showMobileMenu ? "hidden" : "auto";
     }
   }, [showMobileMenu]);
+
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    setStatus("loading");
+
+    try {
+      const response = await fetch("/api/send-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, message }),
+      });
+
+      if (!response.ok) {
+        const body = await response.json().catch(() => ({}));
+        throw new Error(body.error ?? "Erro ao enviar mensagem.");
+      }
+
+      setStatus("success");
+      setEmail("");
+      setMessage("");
+    } catch {
+      setStatus("error");
+    }
+  }
 
   return (
     <>
@@ -273,16 +302,12 @@ export default function Home() {
               <h3>Básico</h3>
               <p>Para sessões rápidas e jogos casuais.</p>
             </span>
-
             <span className="price">
               <h2>R$ 29,90</h2>
               <p>/mês</p>
             </span>
-
             <Button text="Assinar plano" secondary />
-
             <span className="hr" />
-
             <span className="features">
               <img src={Check} alt="check" width={20} height={20} />
               <p>10 horas por mês</p>
@@ -305,21 +330,16 @@ export default function Home() {
             <span className="bonus">
               <p>MAIS ESCOLHIDO</p>
             </span>
-
             <span className="plan">
               <h3>Pro Gamer</h3>
               <p>Para quem joga mais e busca performance.</p>
             </span>
-
             <span className="price">
               <h2>R$ 59,90</h2>
               <p>/mês</p>
             </span>
-
             <Button text="Assinar plano" />
-
             <span className="hr" />
-
             <span className="features">
               <img src={Check} alt="check" width={20} height={20} />
               <p>25 horas por mês</p>
@@ -343,16 +363,12 @@ export default function Home() {
               <h3>Elite</h3>
               <p>Para jogadores exigentes e competitivos.</p>
             </span>
-
             <span className="price">
               <h2>R$ 89,90</h2>
               <p>/mês</p>
             </span>
-
             <Button text="Assinar plano" secondary />
-
             <span className="hr" />
-
             <span className="features">
               <img src={Check} alt="check" width={20} height={20} />
               <p>50 horas por mês</p>
@@ -386,13 +402,31 @@ export default function Home() {
           </span>
         </header>
 
-        <form className="contact-form">
-          <input type="email" placeholder="Seu melhor e-mail" />
+        <form className="contact-form" onSubmit={handleSubmit}>
+          <input
+            type="email"
+            placeholder="Seu melhor e-mail"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
           <textarea
             placeholder="Descreva sua dúvida, solicite um orçamento ou envie sua mensagem."
             rows={4}
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+            required
           />
-          <Button text="Enviar mensagem" />
+          <Button
+            text={status === "loading" ? "Enviando..." : "Enviar mensagem"}
+          />
+
+          {status === "success" && (
+            <p style={{ color: "#4ade80" }}>Mensagem enviada com sucesso!</p>
+          )}
+          {status === "error" && (
+            <p style={{ color: "#f87171" }}>Erro ao enviar. Tente novamente.</p>
+          )}
         </form>
       </section>
 
