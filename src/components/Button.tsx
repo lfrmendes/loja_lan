@@ -7,7 +7,10 @@ interface IButtonProps {
 
 export default function Button({ text, secondary }: IButtonProps) {
   return (
-    <button className={secondary ? "btn-secondary" : "btn-primary"}>
+    <button
+      type={secondary ? "button" : "submit"}
+      className={secondary ? "btn-secondary" : "btn-primary"}
+    >
       {text}
     </button>
   );
