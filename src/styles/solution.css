@@ -2,70 +2,98 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-block: 4rem;
-  gap: 5.75rem;
+  padding-block: 5rem;
+  gap: 4rem;
+  background: var(--bg-surface);
 }
+
 #solution header {
   display: grid;
   gap: 1.5rem;
   text-align: center;
-  max-width: 33rem;
+  max-width: 36rem;
 }
+
+#solution header .eyebrow {
+  color: var(--second-text-color);
+  font-weight: var(--fw-md);
+  font-size: var(--fs-sm);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
 #solution p {
   color: var(--second-text-color);
 }
-#solution strong {
-  color: var(--primary-color);
-  font-weight: var(--fw-bold);
-}
+
 #solution .even-columns {
-  gap: 2rem;
+  gap: 1.5rem;
 }
+
 .card {
-  background: var(--light-gray);
-  box-shadow: rgba(149, 157, 165, 0.4) 0px 8px 24px;
-  max-width: 20.25rem;
-  min-height: 26rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  max-width: 22rem;
+  min-height: 22rem;
   display: flex;
   text-align: center;
   flex-direction: column;
   align-items: center;
-  border-radius: 6px;
+  border-radius: 12px;
+  padding: 2rem 1.5rem;
+  transition:
+    border-color 0.2s,
+    transform 0.2s;
+}
+
+.card:hover {
+  border-color: #555;
+  transform: translateY(-4px);
 }
 
 .card span {
   display: flex;
-  min-height: 8rem;
-  align-items: end;
+  min-height: 5rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.card span svg,
+.card span img {
+  filter: invert(1);
+  opacity: 0.9;
 }
 
 .card div {
   height: 100%;
-  gap: 1.5rem;
+  gap: 1rem;
   display: flex;
   flex-direction: column;
-  justify-content: end;
+  justify-content: start;
+  margin-top: 1rem;
 }
+
 .card h3 {
-  font-size: 1.5rem;
+  font-size: 1.1rem;
+  color: var(--text-color);
 }
+
 .card p {
-  padding-inline: 1.5rem;
+  padding-inline: 0.5rem;
   color: var(--second-text-color);
+  font-size: var(--fs-sm);
 }
+
 .card hr {
-  height: 6px;
-  background: var(--secondary-color);
+  height: 1px;
+  background: var(--border-color);
   width: 100%;
   border: none;
+  margin-top: auto;
 }
+
 @media (width > 1280px) {
   #solution {
-    padding-block: 7.5rem;
-  }
-
-  #solution header > span > h2 {
-    font-size: var(--fs-sm);
-    color: var(--primary-color);
+    padding-block: 7rem;
   }
 }

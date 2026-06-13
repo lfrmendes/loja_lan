@@ -11,26 +11,27 @@ import "../styles/footer.css";
 
 import Close from "../assets/close.svg";
 import Menu from "../assets/hamburguer.svg";
-import HeroRectangleOne from "../assets/images/rectangleOne.png";
-import HeroRectangleTwo from "../assets/images/rectangleTwo.png";
-import Champion from "../assets/champion.svg";
+import Monitor from "../assets/monitor.svg";
+import Construction from "../assets/construction.svg";
+import Account from "../assets/account.svg";
+
 import Star from "../assets/Star.png";
-import ProfileImageOne from "../assets/ProfileImageOne.svg";
 import VoidStar from "../assets/VoidStar.png";
 import Check from "../assets/Check.png";
+import Bah from "../assets/images/bah.jpg";
+import CachorroChupetao from "../assets/images/cachorrochupetao.jpg";
+import Monkey from "../assets/images/monkey.jpg";
+import Sorridente from "../assets/images/sorridente.jpg";
 
 import Button from "../components/Button";
 import Card from "../components/Card";
 import TestimonialCard from "../components/TestimonialCard";
-import ContactForm from "../components/ContactForm";
-import Footer from "../components/Footer";
 
 export default function Home() {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
 
   useEffect(() => {
     const html = document.querySelector("html");
-
     if (html) {
       html.style.overflow = showMobileMenu ? "hidden" : "auto";
     }
@@ -40,12 +41,7 @@ export default function Home() {
     <>
       <header className="container py-sm">
         <nav className="flex items-center justify-between">
-          <img
-            src="/logo.png"
-            alt="Logo FR Computer"
-            width={200}
-            height={100}
-          />
+          <img src="/logo.png" alt="Logo FR Computer" width={180} height={80} />
 
           <div className="desktop-only">
             <ul className="flex gap-1">
@@ -56,10 +52,10 @@ export default function Home() {
                 <a href="#solution">Soluções</a>
               </li>
               <li>
-                <a href="#testimonials">Depoimentos</a>
+                <a href="#testimonials">Avaliações</a>
               </li>
               <li>
-                <a href="#pricing">Preços</a>
+                <a href="#pricing">Planos</a>
               </li>
               <li>
                 <a href="#contact">Contato</a>
@@ -72,7 +68,6 @@ export default function Home() {
               <a className="reverse-color ml-lg" href="">
                 Login
               </a>
-
               <Button text="Cadastre-se" />
             </div>
           </div>
@@ -87,7 +82,6 @@ export default function Home() {
                         Home
                       </a>
                     </li>
-
                     <li>
                       <a
                         onClick={() => setShowMobileMenu(false)}
@@ -96,25 +90,22 @@ export default function Home() {
                         Soluções
                       </a>
                     </li>
-
                     <li>
                       <a
                         onClick={() => setShowMobileMenu(false)}
                         href="#testimonials"
                       >
-                        Depoimentos
+                        Avaliações
                       </a>
                     </li>
-
                     <li>
                       <a
                         onClick={() => setShowMobileMenu(false)}
                         href="#pricing"
                       >
-                        Preços
+                        Planos
                       </a>
                     </li>
-
                     <li>
                       <a
                         onClick={() => setShowMobileMenu(false)}
@@ -124,17 +115,11 @@ export default function Home() {
                       </a>
                     </li>
                   </ul>
-
                   <span
                     onClick={() => setShowMobileMenu(!showMobileMenu)}
                     className="btn-wrapper"
                   >
-                    <img
-                      src={Close}
-                      alt="ícone fechar menu"
-                      width={24}
-                      height={24}
-                    />
+                    <img src={Close} alt="Fechar menu" width={24} height={24} />
                   </span>
                 </div>
               </div>
@@ -143,7 +128,7 @@ export default function Home() {
                 onClick={() => setShowMobileMenu(!showMobileMenu)}
                 className="btn-wrapper"
               >
-                <img src={Menu} alt="ícone menu" width={24} height={24} />
+                <img src={Menu} alt="Abrir menu" width={24} height={24} />
               </span>
             )}
           </div>
@@ -151,150 +136,212 @@ export default function Home() {
       </header>
 
       <section id="hero">
-        <span className="desktop-only">
-          <img src={HeroRectangleTwo} alt="Retangulo um tela inicial" />
-        </span>
-
-        <img src={HeroRectangleOne} alt="Retangulo dois tela inicial" />
-
         <div className="container content">
-          <p className="desktop-only">Olá</p>
+          <p className="eyebrow desktop-only">Seu jogo. Nossa performance.</p>
 
           <h1>
-            Comida de mãe direto no seu apê, é só pedir que entregamos para
-            você!
+            Monte seu PC Gamer ou escolha um plano para{" "}
+            <span>jogar sem limites.</span>
           </h1>
 
           <p>
-            Já pensou em matar a saudade daquela comida caseira? O melhor de
-            tudo, nossas receitas são 100% saudáveis, bora entrar no shape.
+            Peças de alta performance, periféricos incríveis e planos exclusivos
+            para nossa Lan House. Tudo que você precisa para elevar seu nível no
+            game.
           </p>
 
           <div className="flex gap-1">
             <span>
-              <Button text="Cadastre-se" />
+              <Button text="Montar meu PC" />
             </span>
-
             <span className="desktop-only">
-              <Button text="Veja mais" secondary />
+              <Button text="Ver planos" secondary />
             </span>
           </div>
         </div>
       </section>
+
       <section className="container" id="solution">
         <header>
-          <span>
-            <h2>Soluções</h2>
-
-            <span className="desktop-only">
-              <h2>Sob medida para você</h2>
-            </span>
-          </span>
-
+          <span className="eyebrow">Por que escolher a FR Computer?</span>
+          <h2>Vantagens que fazem a diferença</h2>
           <p>
-            Inovação é com a gente! A <strong>DonaFrost</strong>
-            já conquistou diversos clientes, seja você mais um deles, veja tudo
-            que pode ganhar com nossos serviços.
+            Da montagem à manutenção, da Lan House às peças originais — a{" "}
+            <strong>FR Computer</strong> tem tudo que o gamer precisa em um só
+            lugar.
           </p>
         </header>
 
         <div className="even-columns">
           <Card
-            icon={Champion}
-            title="Produto Vencedor"
-            description="Ideia matadora, nosso time já ganhou diversos eventos de inovação com nosso produto."
+            icon={Monitor}
+            title="Peças Originais"
+            description="Trabalhamos apenas com componentes das melhores marcas do mercado, com garantia e máxima performance."
           />
-
           <Card
-            icon={Champion}
-            title="Atendimento Rápido"
-            description="Nossa equipe está preparada para atender você com rapidez e qualidade."
+            icon={Construction}
+            title="Montagem Especializada"
+            description="Nossa equipe monta seu PC do zero com capricho, do cabeamento ao gerenciamento térmico."
           />
-
           <Card
-            icon={Champion}
-            title="Suporte Especializado"
-            description="Conte com profissionais experientes para encontrar a melhor solução."
+            icon={Account}
+            title="Suporte Técnico"
+            description="Assistência antes, durante e depois da compra. Upgrade, manutenção e diagnóstico completo."
           />
         </div>
       </section>
+
       <section id="testimonials">
         <header>
-          <span>
-            <p className="desktop-only">Conselho de quem conhece</p>
-
-            <h2>Cada cliente importa!</h2>
-          </span>
-
+          <p className="eyebrow desktop-only">O que dizem nossos clientes</p>
+          <h2>Avaliações de quem joga com a gente</h2>
           <p>
-            Quem já pediu sabe da qualidade das nossas receitas, estamos tirando
-            aquela ideia de que comida congelada tem de ser algo sem gosto,
-            acompanhe abaixo os testemunhos de quem já comprou e aprovou.
+            Quem montou aqui, voltou. Confira o que nossos clientes falam sobre
+            a experiência FR Computer.
           </p>
         </header>
 
         <section className="carousel">
           <div className="carousel-content">
             <TestimonialCard
-              image={ProfileImageOne}
-              testimony="Certamente o mercado chinês de eletricos está bombando, só existe uma coisa melhor do que isso, provar uma boa comida DonaFrost no almoço."
-              name="Ellon Ma"
-              role="CEO BING CHILLING"
+              image={Bah}
+              testimony="Montei meu PC com a FR Computer e ficou simplesmente incrível! Atendimento top e peças de altíssima qualidade."
+              name="Lucas Gauchinho"
+              role="Desempregado"
+              stars={5}
+              starIcon={Star}
+              voidStarIcon={VoidStar}
+            />
+            <TestimonialCard
+              image={CachorroChupetao}
+              testimony="Ambiente da Lan House é impecável, PCs potentes e conexão estável. Meu lugar favorito pra jogar com os amigos!"
+              name="Beatriz"
+              role="Amadora nos jogos"
+              stars={5}
+              starIcon={Star}
+              voidStarIcon={VoidStar}
+            />
+            <TestimonialCard
+              image={Monkey}
+              testimony="Upgrade de placa de vídeo feito em menos de uma hora. Voltei pra casa com o PC rodando tudo no máximo!"
+              name="Rafael Guloso"
+              role="Clt Raiz"
               stars={4}
               starIcon={Star}
               voidStarIcon={VoidStar}
             />
-
             <TestimonialCard
-              image={ProfileImageOne}
-              testimony="Certamente o mercado chinês de eletricos está bombando, só existe uma coisa melhor do que isso, provar uma boa comida DonaFrost no almoço."
-              name="Ryan Gosling"
-              role="Agrônomo"
-              stars={4}
+              image={Sorridente}
+              testimony="Melhor custo-benefício que já encontrei. Peças originais, preço justo e entrega rápida."
+              name="Ana Contente"
+              role="Designer"
+              stars={5}
+              starIcon={Star}
+              voidStarIcon={VoidStar}
+            />
+            <TestimonialCard
+              image={Bah}
+              testimony="Montei meu PC com a FR Computer e ficou simplesmente incrível! Atendimento top e peças de altíssima qualidade."
+              name="Lucas Gauchinho"
+              role="Desempregado"
+              stars={5}
+              starIcon={Star}
+              voidStarIcon={VoidStar}
+            />
+            <TestimonialCard
+              image={CachorroChupetao}
+              testimony="Ambiente da Lan House é impecável, PCs potentes e conexão estável. Meu lugar favorito pra jogar com os amigos!"
+              name="Beatriz"
+              role="Amadora nos jogos"
+              stars={5}
               starIcon={Star}
               voidStarIcon={VoidStar}
             />
           </div>
         </section>
       </section>
+
       <section id="pricing" className="container">
         <header>
-          <p className="desktop-only">Planos e preços</p>
-          <h2>Nossos planos</h2>
+          <p className="eyebrow desktop-only">Planos Lan House</p>
+          <h2>Escolha o plano ideal para você</h2>
         </header>
 
         <section className="even-columns">
           <div className="pricing-card">
             <span className="plan">
               <h3>Básico</h3>
-              <p>Você tem direito a uma prova das comidas DonaFrost.</p>
+              <p>Para sessões rápidas e jogos casuais.</p>
             </span>
 
-            <h2>Grátis</h2>
+            <span className="price">
+              <h2>R$ 29,90</h2>
+              <p>/mês</p>
+            </span>
 
-            <Button text="Pedir agora" secondary />
+            <Button text="Assinar plano" secondary />
 
             <span className="hr" />
 
             <span className="features">
-              <img src={Check} alt="ícone check" width={24} height={24} />
-              <p>Retire na loja</p>
+              <img src={Check} alt="check" width={20} height={20} />
+              <p>10 horas por mês</p>
             </span>
-
             <span className="features">
-              <img src={Check} alt="ícone check" width={24} height={24} />
-              <p>Apenas 1 por CPF</p>
+              <img src={Check} alt="check" width={20} height={20} />
+              <p>PC Gamer Padrão</p>
+            </span>
+            <span className="features">
+              <img src={Check} alt="check" width={20} height={20} />
+              <p>Internet de Alta Velocidade</p>
+            </span>
+            <span className="features">
+              <img src={Check} alt="check" width={20} height={20} />
+              <p>Suporte Básico</p>
             </span>
           </div>
 
           <div className="pricing-card premium">
             <span className="bonus">
-              <p>1º MÊS COM DESCONTO</p>
+              <p>MAIS ESCOLHIDO</p>
             </span>
 
             <span className="plan">
-              <h3>Premium</h3>
-              <p>Para quem precisa de uma marmita diária, muito saborosa.</p>
+              <h3>Pro Gamer</h3>
+              <p>Para quem joga mais e busca performance.</p>
+            </span>
+
+            <span className="price">
+              <h2>R$ 59,90</h2>
+              <p>/mês</p>
+            </span>
+
+            <Button text="Assinar plano" />
+
+            <span className="hr" />
+
+            <span className="features">
+              <img src={Check} alt="check" width={20} height={20} />
+              <p>25 horas por mês</p>
+            </span>
+            <span className="features">
+              <img src={Check} alt="check" width={20} height={20} />
+              <p>PC Gamer Avançado</p>
+            </span>
+            <span className="features">
+              <img src={Check} alt="check" width={20} height={20} />
+              <p>Internet de Ultra Velocidade</p>
+            </span>
+            <span className="features">
+              <img src={Check} alt="check" width={20} height={20} />
+              <p>Descontos em produtos</p>
+            </span>
+          </div>
+
+          <div className="pricing-card">
+            <span className="plan">
+              <h3>Elite</h3>
+              <p>Para jogadores exigentes e competitivos.</p>
             </span>
 
             <span className="price">
@@ -302,135 +349,98 @@ export default function Home() {
               <p>/mês</p>
             </span>
 
-            <Button text="Pedir agora" />
+            <Button text="Assinar plano" secondary />
 
             <span className="hr" />
 
             <span className="features">
-              <img src={Check} alt="ícone check" width={24} height={24} />
-              <p>2 Entregas</p>
+              <img src={Check} alt="check" width={20} height={20} />
+              <p>50 horas por mês</p>
             </span>
-
             <span className="features">
-              <img src={Check} alt="ícone check" width={24} height={24} />
-              <p>5 Refeições por semana</p>
+              <img src={Check} alt="check" width={20} height={20} />
+              <p>PC Gamer High End</p>
             </span>
-
             <span className="features">
-              <img src={Check} alt="ícone check" width={24} height={24} />
-              <p>2 Sucos por semana</p>
+              <img src={Check} alt="check" width={20} height={20} />
+              <p>Internet de Ultra Velocidade</p>
             </span>
-          </div>
-          <div className="pricing-card">
-            <span className="plan">
-              <h3>Empresarial</h3>
-              <p>
-                Ideal para empresas que desejam oferecer refeições aos
-                colaboradores.
-              </p>
-            </span>
-
-            <span className="price">
-              <h2>R$ 149,90</h2>
-              <p>/mês</p>
-            </span>
-
-            <Button text="Pedir agora" />
-
-            <span className="hr" />
-
             <span className="features">
-              <img src={Check} alt="ícone check" width={24} height={24} />
-              <p>10 refeições por semana</p>
-            </span>
-
-            <span className="features">
-              <img src={Check} alt="ícone check" width={24} height={24} />
-              <p>Entrega prioritária</p>
-            </span>
-
-            <span className="features">
-              <img src={Check} alt="ícone check" width={24} height={24} />
-              <p>Suporte dedicado</p>
+              <img src={Check} alt="check" width={20} height={20} />
+              <p>Acesso prioritário</p>
             </span>
           </div>
         </section>
       </section>
+
       <section id="contact" className="container">
         <header className="contact-header">
-          <p>Envie sua dúvida</p>
-
-          <h2>Entre em contato</h2>
-
+          <p className="eyebrow">Fale conosco</p>
+          <h2>Tem alguma dúvida?</h2>
           <span>
             <p>
-              Entre em contato conosco. Estamos prontos para esclarecer dúvidas,
-              fornecer informações sobre nossos produtos e ajudar você a
-              encontrar a melhor solução para suas necessidades.
+              Entre em contato conosco e nossa equipe vai te ajudar a encontrar
+              a melhor solução para você — seja um orçamento, dúvida técnica ou
+              plano personalizado.
             </p>
           </span>
         </header>
 
         <form className="contact-form">
           <input type="email" placeholder="Seu melhor e-mail" />
-
           <textarea
             placeholder="Descreva sua dúvida, solicite um orçamento ou envie sua mensagem."
-            rows={3}
+            rows={4}
           />
-
-          <Button text="Enviar" />
+          <Button text="Enviar mensagem" />
         </form>
       </section>
+
       <footer className="footer">
         <div className="container footer-content">
-          <div>
-            <h3>logo.png</h3>
-
-            <div className="social-links">
-              <span>Instagram</span>
-              <span>Facebook</span>
-              <span>YouTube</span>
+          <div className="footer-logo">
+            <img src="/logo.png" alt="FR Computer" width={140} />
+            <p>Performance que você sente. Experiência que você vive.</p>
+            <div className="social-icons">
+              <img src={Monitor} alt="Instagram" />
+              <img src={Monitor} alt="Facebook" />
+              <img src={Monitor} alt="YouTube" />
+              <img src={Monitor} alt="Discord" />
             </div>
           </div>
 
           <div>
             <h3>Empresa</h3>
-
             <ul>
               <li>Sobre nós</li>
-              <li>Faça parte do time</li>
+              <li>Trabalhe conosco</li>
               <li>Blog</li>
             </ul>
           </div>
 
           <div>
-            <h3>Funcionalidades</h3>
-
+            <h3>Categorias</h3>
             <ul>
-              <li>Marketing</li>
-              <li>Análise de dados</li>
-              <li>Boot discord</li>
+              <li>Placas de Vídeo</li>
+              <li>Processadores</li>
+              <li>Periféricos</li>
+              <li>Montagem de PC</li>
             </ul>
           </div>
 
           <div>
-            <h3>Recursos</h3>
-
+            <h3>Suporte</h3>
             <ul>
-              <li>IOS & Android</li>
-              <li>Teste a Demo</li>
-              <li>Clientes</li>
-              <li>API</li>
+              <li>Central de Ajuda</li>
+              <li>Política de Garantia</li>
+              <li>Trocas e Devoluções</li>
+              <li>Fale Conosco</li>
             </ul>
           </div>
         </div>
 
         <div className="footer-bottom">
-          <p>
-            Feito com amor na aula de Programação Web 💙 ©2024 AktieTech - Todos
-            os direitos reservados.
-          </p>
+          <p>© 2026 FR Computer. Todos os direitos reservados.</p>
         </div>
       </footer>
     </>

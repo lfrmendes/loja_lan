@@ -10,13 +10,21 @@
   margin-right: 2.875rem;
 }
 
+header.container {
+  background: var(--bg-color);
+  border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
 .mobile-menu {
   display: initial;
   z-index: 3;
 }
 
 .mobile-menu-content {
-  position: absolute;
+  position: fixed;
   display: flex;
   top: 0;
   left: 0;
@@ -37,12 +45,12 @@
 
 .mobile-menu-content a {
   font-size: var(--fs-lg);
+  color: var(--text-color);
 }
 
 @media (width >= 1280px) {
-  header {
+  header.container {
     position: relative;
-    z-index: 1;
   }
 
   nav > img {

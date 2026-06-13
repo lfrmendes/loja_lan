@@ -9,6 +9,10 @@
   border-radius: 0.4rem;
   cursor: pointer;
   border: solid transparent 0.15rem;
+  transition:
+    background 0.2s,
+    color 0.2s,
+    border-color 0.2s;
 }
 
 .btn-primary:hover {
@@ -27,7 +31,11 @@
   padding-inline: 1.5rem;
   border-radius: 0.4rem;
   cursor: pointer;
-  border: solid var(--primary-color) 0.15rem;
+  border: solid var(--border-color) 0.15rem;
+  transition:
+    background 0.2s,
+    color 0.2s,
+    border-color 0.2s;
 }
 
 .btn-secondary:hover {
